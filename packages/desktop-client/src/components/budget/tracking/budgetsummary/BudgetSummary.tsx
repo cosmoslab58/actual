@@ -25,6 +25,7 @@ import { useUndo } from '#hooks/useUndo';
 import { BudgetMonthMenu } from './BudgetMonthMenu';
 import { ExpenseTotal } from './ExpenseTotal';
 import { IncomeTotal } from './IncomeTotal';
+import { MovedOffBudget } from './MovedOffBudget';
 import { Saved } from './Saved';
 
 type BudgetSummaryProps = {
@@ -247,6 +248,7 @@ export function BudgetSummary({ month }: BudgetSummaryProps) {
           >
             <IncomeTotal />
             <ExpenseTotal />
+            <MovedOffBudget month={month} />
           </SpaceBetween>
         )}
 
