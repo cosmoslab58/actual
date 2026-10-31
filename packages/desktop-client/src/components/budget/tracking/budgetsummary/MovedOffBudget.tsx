@@ -26,10 +26,11 @@ export function MovedOffBudget({ month }: { month: string }) {
           'account.offbudget': false,
           'payee.transfer_acct.offbudget': true,
           is_parent: false,
-          date: {
-            $gte: monthUtils.firstDayOfMonth(month),
-            $lte: monthUtils.lastDayOfMonth(month),
-          },
+          // two clauses: one object holding both $gte and $lte keeps only one
+          $and: [
+            { date: { $gte: monthUtils.firstDayOfMonth(month) } },
+            { date: { $lte: monthUtils.lastDayOfMonth(month) } },
+          ],
         })
         .calculate({ $sum: '$amount' }),
     [month],
