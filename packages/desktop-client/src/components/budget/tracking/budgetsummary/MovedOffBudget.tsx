@@ -42,7 +42,8 @@ export function MovedOffBudget({ month }: { month: string }) {
 
   return (
     <View
-      style={{ lineHeight: 1.5, fontSize: 14, ...styles.tnum }}
+      // 30 = the 20px pie plus its 10px gap on the Income/Expenses rows above
+      style={{ lineHeight: 1.5, fontSize: 14, marginLeft: 30, ...styles.tnum }}
       title={t(
         'Transfers to off-budget accounts this month. Not counted as income or spending.',
       )}
